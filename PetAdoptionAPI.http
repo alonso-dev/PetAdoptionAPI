@@ -1,6 +1,41 @@
 @PetAdoptionAPI_HostAddress = http://localhost:5034
 
-GET {{PetAdoptionAPI_HostAddress}}/weatherforecast/
+GET {{PetAdoptionAPI_HostAddress}}/pet
 Accept: application/json
+
+###
+
+GET {{PetAdoptionAPI_HostAddress}}/pet/1
+Accept: application/json
+
+###
+
+POST {{PetAdoptionAPI_HostAddress}}/pet
+Content-Type: application/json
+
+{
+    "name": "Lulu",
+    "breed": "shipu",
+    "age": 50,
+
+    "ImageUrl": "lulu.com"
+}
+
+###
+
+PUT {{PetAdoptionAPI_HostAddress}}/pet/3
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Lulu",
+    "breed": "shipu",
+    "age": 50,
+    "ImageUrl": "lulu.com"
+}
+
+###
+
+DELETE  {{PetAdoptionAPI_HostAddress}}/pet/3
 
 ###
