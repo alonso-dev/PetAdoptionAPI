@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using PetAdoptionAPI.Data;
 using PetAdoptionAPI.Models;
 
 namespace PetAdoptionAPI.Controllers;
@@ -8,7 +7,7 @@ namespace PetAdoptionAPI.Controllers;
 [Route("[controller]")]
 public class PetController : ControllerBase
 {
-    public PetController()
+ /*   public PetController()
     {
     }
     [HttpGet]
@@ -28,13 +27,13 @@ public class PetController : ControllerBase
     public IActionResult Create(Pet pet)
     {
         PetService.Add(pet);
-        return CreatedAtAction(nameof(Get), new { id = pet.Id}, pet);
+        return CreatedAtAction(nameof(Get), new { id = pet.ID}, pet);
     }
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, Pet pet)
     {
-        if(id != pet.Id)
+        if(id != pet.ID)
             return BadRequest();
 
         var existingPet = PetService.Get(id);
@@ -58,5 +57,5 @@ public class PetController : ControllerBase
         PetService.Delete(id);
 
         return NoContent();
-    }
+    } */
 }
