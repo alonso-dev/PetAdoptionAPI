@@ -7,55 +7,56 @@ namespace PetAdoptionAPI.Controllers;
 [Route("[controller]")]
 public class PetController : ControllerBase
 {
- /*   public PetController()
+    private readonly IPetService _petService;
+
+    public PetController(IPetService petService)
     {
+        _petService = petService;
     }
+
     [HttpGet]
-    public ActionResult<List<Pet>> GetAll() => 
-    PetService.GetAll();
+    public async Task<ActionResult<IEnumerable<Pet>>> GetAllPets()
+    {
+        var pets = await _petService.GetAllPetsAsync();
+        return Ok(pets);
+    } 
 
     [HttpGet("{id}")]
-    public ActionResult<Pet> Get(int id)
+    public async Task<ActionResult<Pet>> GetPetById(int id)
     {
-        var pet = PetService.Get(id);
-        if(pet == null)
-            return NotFound();
-        return pet;
+        var pet = await _petService.GetPetByIdAsync(id);
+        if (pet == null) return NotFound("Pet not found.");
+        return Ok(pet);
     }
 
     [HttpPost]
-    public IActionResult Create(Pet pet)
+    public async Task<ActionResult<Pet>> AddPet([FromBody] Pet pet)
     {
-        PetService.Add(pet);
-        return CreatedAtAction(nameof(Get), new { id = pet.ID}, pet);
+        if(pet == null) return BadRequest("Invalid pet data.");
+
+        var createdPet = await _petService.AddPetAsync(pet);
+        return CreatedAtAction(nameof(GetPetById), new { id = createdPet.ID});
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update(int id, Pet pet)
+    public async Task<IActionResult> UpdatePet(int id, [FromBody] Pet pet)
     {
-        if(id != pet.ID)
-            return BadRequest();
+        if(id != pet.ID) return BadRequest("Pet ID mismatch");
 
-        var existingPet = PetService.Get(id);
+        var updated = await _petService.UpdatePetAsync(pet);
+        if(!updated) return NotFound("Pet not found.");
 
-        if(existingPet is null)
-            return NotFound();
-
-        PetService.Update(pet);
-        
         return NoContent();
     }
 
-    [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    [HttpDelete]
+    public async Task<IActionResult> DeletePet(int id)
     {
-        var pet = PetService.Get(id);
-
-        if(pet is null)
-            return NotFound();
-        
-        PetService.Delete(id);
+        var deleted = await _petService.DeletePetAsync(id);
+        if (!deleted) return NotFound("Pet not found.");
 
         return NoContent();
-    } */
+    }
+
+
 }

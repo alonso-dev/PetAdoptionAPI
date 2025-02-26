@@ -14,12 +14,18 @@ POST {{PetAdoptionAPI_HostAddress}}/pet
 Content-Type: application/json
 
 {
-    "name": "Lulu",
-    "breed": "shipu",
-    "age": 50,
-
-    "ImageUrl": "lulu.com"
+  "name": "Buddy",
+  "age": 3,
+  "breed": "Labrador",
+  "description": "Friendly and energetic!",
+  "status": 1,
+  "petShelterID": 1, 
+  "images": [
+    { "imageURL": "https://example.com/dog1.jpg" },
+    { "imageURL": "https://example.com/dog2.jpg" }
+  ]
 }
+
 
 ###
 

@@ -7,6 +7,7 @@ builder.Services.AddDbContext<ApplicationDbContext>( options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
+builder.Services.AddScoped<IPetService, PetService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
