@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PetAdoptionAPI.Data;
+using PetAdoptionAPI.Services;
+using PetAdoptionAPI.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

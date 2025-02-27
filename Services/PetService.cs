@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using PetAdoptionAPI.Data;
 using PetAdoptionAPI.Models;
+using PetAdoptionAPI.Services.Interfaces;
 
+namespace PetAdoptionAPI.Services;
 public class PetService : IPetService
 {
     private readonly ApplicationDbContext _context;

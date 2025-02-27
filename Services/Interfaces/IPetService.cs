@@ -1,5 +1,6 @@
 using PetAdoptionAPI.Models;
 
+namespace PetAdoptionAPI.Services.Interfaces;
 public interface IPetService 
 {
     Task<IEnumerable<Pet>> GetAllPetsAsync();
