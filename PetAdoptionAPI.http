@@ -45,3 +45,21 @@ Content-Type: application/json
 DELETE  {{PetAdoptionAPI_HostAddress}}/pet/3
 
 ###
+
+POST {{PetAdoptionAPI_HostAddress}}/api/user/register
+Content-Type: application/json
+
+{
+  "name": "Alonso Calderon",
+  "email": "alonso.calderon@email.com",
+  "passwordHash": "newhashedpassword",
+  "provider": 1,  
+  "providerID": null,
+  "role": 1,  
+  "createdAt": "2025-02-26T10:00:00Z"
+}
+
+
+
+
+###

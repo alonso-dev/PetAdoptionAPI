@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PetAdoptionAPI.Models;
+using PetAdoptionAPI.Services.Interfaces;
 
 namespace PetAdoptionAPI.Controllers;
 
