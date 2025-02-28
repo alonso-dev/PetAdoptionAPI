@@ -11,7 +11,7 @@ public class Pet : BaseEntity
     public int PetShelterID { get; set; }
     public PetShelter PetShelter { get; set; } = null!;
 
-    public ICollection<PetImage> Images { get; set; } = null!;
+    public ICollection<PetImage>? Images { get; set; } = new List<PetImage>();
 }
 public enum PetStatus 
 {

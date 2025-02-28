@@ -12,7 +12,7 @@ public class User : BaseEntity
 
     public UserRole Role { get; set; } = UserRole.NormalUser;
 
-    public ICollection<AdoptionRequest> AdoptionRequests { get; set; } = null!;
+    public ICollection<AdoptionRequest>? AdoptionRequests { get; set; } = new List<AdoptionRequest>();
 }
 
 public enum AuthProvider 

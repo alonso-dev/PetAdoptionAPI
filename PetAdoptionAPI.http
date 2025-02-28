@@ -1,48 +1,17 @@
 @PetAdoptionAPI_HostAddress = http://localhost:5034
 
-GET {{PetAdoptionAPI_HostAddress}}/pet
+GET {{PetAdoptionAPI_HostAddress}}/api/user
 Accept: application/json
 
 ###
 
-GET {{PetAdoptionAPI_HostAddress}}/pet/1
+GET {{PetAdoptionAPI_HostAddress}}/api/user/1
 Accept: application/json
 
 ###
 
-POST {{PetAdoptionAPI_HostAddress}}/pet
-Content-Type: application/json
-
-{
-  "name": "Buddy",
-  "age": 3,
-  "breed": "Labrador",
-  "description": "Friendly and energetic!",
-  "status": 1,
-  "petShelterID": 1, 
-  "images": [
-    { "imageURL": "https://example.com/dog1.jpg" },
-    { "imageURL": "https://example.com/dog2.jpg" }
-  ]
-}
-
-
-###
-
-PUT {{PetAdoptionAPI_HostAddress}}/pet/3
-Content-Type: application/json
-
-{
-    "id": 3,
-    "name": "Lulu",
-    "breed": "shipu",
-    "age": 50,
-    "ImageUrl": "lulu.com"
-}
-
-###
-
-DELETE  {{PetAdoptionAPI_HostAddress}}/pet/3
+GET {{PetAdoptionAPI_HostAddress}}/api/user/email/alonso.calderon@email.com
+Accept: application/json
 
 ###
 
@@ -59,7 +28,27 @@ Content-Type: application/json
   "createdAt": "2025-02-26T10:00:00Z"
 }
 
+###
+
+### Update User (PUT Request)
+PUT {{PetAdoptionAPI_HostAddress}}/api/user/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Alonso Calderon Updated",
+  "email": "alonso.updated@email.com",
+  "passwordHash": "newsecurepassword",
+  "provider": 0,
+  "providerID": null,
+  "role": 0,
+  "createdAt": "2025-02-26T10:00:00Z"
+}
 
 
+
+###
+
+DELETE  {{PetAdoptionAPI_HostAddress}}/api/user/1
 
 ###
