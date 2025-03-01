@@ -52,3 +52,28 @@ Content-Type: application/json
 DELETE  {{PetAdoptionAPI_HostAddress}}/api/user/1
 
 ###
+
+GET {{PetAdoptionAPI_HostAddress}}/api/petShelter
+Accept: application/json
+
+###
+
+
+GET {{PetAdoptionAPI_HostAddress}}/api/petShelter/7
+Accept: application/json
+
+###
+
+POST {{PetAdoptionAPI_HostAddress}}/api/petShelter
+Content-Type: application/json
+
+{
+  "name": "territorio zaguates",
+  "location": "San Jose",
+  "ContactInfo": "6002-1119",
+  "UserID": 2
+}
+
+###
+
+DELETE  {{PetAdoptionAPI_HostAddress}}/api/petShelter/6

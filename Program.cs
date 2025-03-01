@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PetAdoptionAPI.Data;
+using PetAdoptionAPI.Models;
 using PetAdoptionAPI.Services;
 using PetAdoptionAPI.Services.Interfaces;
 
@@ -11,6 +12,9 @@ builder.Services.AddDbContext<ApplicationDbContext>( options =>
 // Add services to the container.
 builder.Services.AddScoped<IPetService, PetService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPetShelterService, PetShelterService>();
+builder.Services.AddScoped<IPetImageService, PetImageService>();
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

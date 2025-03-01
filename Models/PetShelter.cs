@@ -7,6 +7,6 @@ public class PetShelter : BaseEntity
     public string ContactInfo { get; set; } = string.Empty;
 
     public int UserID { get; set; }
-    public User User { get; set; } = null!;
+    public User? User { get; set; }
     public ICollection<Pet>? Pets { get; set; } = new List<Pet>();
 }
