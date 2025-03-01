@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PetAdoptionAPI.Data;
 using PetAdoptionAPI.Models;
@@ -15,7 +14,7 @@ public class PetShelterService : IPetShelterService
         _context = context;
     }
 
-    public async Task<IEnumerable<PetShelter>> GetAllPetShelters()
+    public async Task<IEnumerable<PetShelter>> GetAllPetSheltersAsync()
     {
         return await _context.PetShelters
             .Include(ps => ps.Pets)
