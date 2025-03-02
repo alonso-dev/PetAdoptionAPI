@@ -27,6 +27,8 @@ public class PetService : IPetService
 
     public async Task<Pet> AddPetAsync(Pet pet)
     {
+        _context.Attach(new PetShelter { ID = pet.PetShelterID });
+        
         _context.Pets.Add(pet);
         await _context.SaveChangesAsync();
         return pet;

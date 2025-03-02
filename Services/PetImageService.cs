@@ -33,6 +33,8 @@ public class PetImageService : IPetImageService
 
     public async Task<PetImage> AddImageAsync(PetImage petImage)
     {
+        _context.Attach(new Pet { ID = petImage.PetID });
+
         _context.PetImages.Add(petImage);
         await _context.SaveChangesAsync();
         return petImage;

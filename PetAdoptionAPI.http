@@ -1,23 +1,14 @@
 @PetAdoptionAPI_HostAddress = http://localhost:5034
 
+### TESTING USERS ENDPOINT
 GET {{PetAdoptionAPI_HostAddress}}/api/user
-Accept: application/json
-
 ###
-
-GET {{PetAdoptionAPI_HostAddress}}/api/user/1
-Accept: application/json
-
+GET {{PetAdoptionAPI_HostAddress}}/api/user/2
 ###
-
 GET {{PetAdoptionAPI_HostAddress}}/api/user/email/alonso.calderon@email.com
-Accept: application/json
-
 ###
-
 POST {{PetAdoptionAPI_HostAddress}}/api/user/register
 Content-Type: application/json
-
 {
   "name": "Alonso Calderon",
   "email": "alonso.calderon@email.com",
@@ -27,13 +18,9 @@ Content-Type: application/json
   "role": 1,  
   "createdAt": "2025-02-26T10:00:00Z"
 }
-
-###
-
-### Update User (PUT Request)
+### 
 PUT {{PetAdoptionAPI_HostAddress}}/api/user/1
 Content-Type: application/json
-
 {
   "id": 1,
   "name": "Alonso Calderon Updated",
@@ -44,36 +31,66 @@ Content-Type: application/json
   "role": 0,
   "createdAt": "2025-02-26T10:00:00Z"
 }
-
-
-
 ###
-
 DELETE  {{PetAdoptionAPI_HostAddress}}/api/user/1
 
-###
-
+### TESING PET SHELTERS ENDPOINT
 GET {{PetAdoptionAPI_HostAddress}}/api/petShelter
-Accept: application/json
-
 ###
-
-
 GET {{PetAdoptionAPI_HostAddress}}/api/petShelter/7
-Accept: application/json
-
 ###
-
 POST {{PetAdoptionAPI_HostAddress}}/api/petShelter
 Content-Type: application/json
-
 {
   "name": "territorio zaguates",
   "location": "San Jose",
   "ContactInfo": "6002-1119",
   "UserID": 2
 }
-
 ###
-
 DELETE  {{PetAdoptionAPI_HostAddress}}/api/petShelter/6
+
+### TESTING PET ENDPOINTS
+GET {{PetAdoptionAPI_HostAddress}}/api/pet
+###
+GET {{PetAdoptionAPI_HostAddress}}/api/pet/1
+###
+POST {{PetAdoptionAPI_HostAddress}}/api/pet
+Content-Type: application/json
+{
+  "name": "Marley",
+  "age": 1,
+  "breed": "salchi",
+  "description": "loco demente destructor",  
+  "status": 1,
+  "petShelterID": 7,  
+  "createdAt": "2025-03-02T10:00:00Z"
+}
+###
+PUT {{PetAdoptionAPI_HostAddress}}/api/pet/2
+Content-Type: application/json
+{
+  "name": "Tatto",
+  "age": 13,
+  "breed": "zaguaton",
+  "description": "loco tranquilo",  
+  "status": 1,
+  "petShelterID": 7,  
+  "createdAt": "2025-03-02T10:00:00Z",
+  "id": 2
+}
+###
+DELETE  {{PetAdoptionAPI_HostAddress}}/api/pet/3
+
+###TESTING PET IMAGES ENDPOINTS
+GET {{PetAdoptionAPI_HostAddress}}/api/petImage
+###
+GET {{PetAdoptionAPI_HostAddress}}/api/petImage/1
+###
+POST {{PetAdoptionAPI_HostAddress}}/api/PetImage
+Content-Type: application/json
+{
+  "createdAt": "2025-03-02T18:14:36.435Z",
+  "imageURL": "marley.com",
+  "petID": 1
+}

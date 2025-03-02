@@ -36,7 +36,7 @@ public class PetController : ControllerBase
         if(pet == null) return BadRequest("Invalid pet data.");
 
         var createdPet = await _petService.AddPetAsync(pet);
-        return CreatedAtAction(nameof(GetPetById), new { id = createdPet.ID});
+        return CreatedAtAction(nameof(GetPetById), new { id = createdPet.ID }, createdPet);
     }
 
     [HttpPut("{id}")]
@@ -50,7 +50,7 @@ public class PetController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePet(int id)
     {
         var deleted = await _petService.DeletePetAsync(id);

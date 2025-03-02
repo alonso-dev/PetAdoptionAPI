@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace PetAdoptionAPI.Models;
 
 public class Pet : BaseEntity
@@ -9,7 +11,9 @@ public class Pet : BaseEntity
     public PetStatus Status { get; set; } = PetStatus.Available;
 
     public int PetShelterID { get; set; }
-    public PetShelter PetShelter { get; set; } = null!;
+    
+    [JsonIgnore]
+    public PetShelter? PetShelter { get; set; }
 
     public ICollection<PetImage>? Images { get; set; } = new List<PetImage>();
 }
