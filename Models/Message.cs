@@ -1,9 +1,12 @@
+using System.Text.Json.Serialization;
+
 namespace PetAdoptionAPI.Models;
 
 public class Message : BaseEntity 
 {
     public int MessageThreadID { get; set; }
-    public MessageThread MessageThread { get; set; } = null!;
+    [JsonIgnore]
+    public MessageThread? MessageThread { get; set; }
 
     public int SenderID { get; set; }
 
