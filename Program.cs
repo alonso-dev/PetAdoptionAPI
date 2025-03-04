@@ -14,6 +14,7 @@ builder.Services.AddScoped<IPetService, PetService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPetShelterService, PetShelterService>();
 builder.Services.AddScoped<IPetImageService, PetImageService>();
+builder.Services.AddScoped<IMessageThreadService, MessageThreadService>();
 
 
 builder.Services.AddControllers();
