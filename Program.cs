@@ -15,7 +15,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPetShelterService, PetShelterService>();
 builder.Services.AddScoped<IPetImageService, PetImageService>();
 builder.Services.AddScoped<IMessageThreadService, MessageThreadService>();
-
+builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped<IAdoptionRequestService, AdoptionRequestService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
