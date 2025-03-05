@@ -1,9 +1,24 @@
+using Microsoft.EntityFrameworkCore;
+using PetAdoptionAPI.Data;
+using PetAdoptionAPI.Models;
+using PetAdoptionAPI.Services;
+using PetAdoptionAPI.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<ApplicationDbContext>( options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 // Add services to the container.
+builder.Services.AddScoped<IPetService, PetService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPetShelterService, PetShelterService>();
+builder.Services.AddScoped<IPetImageService, PetImageService>();
+builder.Services.AddScoped<IMessageThreadService, MessageThreadService>();
+builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped<IAdoptionRequestService, AdoptionRequestService>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

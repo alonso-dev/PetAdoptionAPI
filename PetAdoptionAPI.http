@@ -1,41 +1,221 @@
 @PetAdoptionAPI_HostAddress = http://localhost:5034
 
-GET {{PetAdoptionAPI_HostAddress}}/pet
-Accept: application/json
+############################################
+### 🚀 USERS ENDPOINTS
+############################################
 
-###
+### Get all users
+GET {{PetAdoptionAPI_HostAddress}}/api/user
 
-GET {{PetAdoptionAPI_HostAddress}}/pet/1
-Accept: application/json
+### Get user by ID
+GET {{PetAdoptionAPI_HostAddress}}/api/user/2
 
-###
+### Get user by email
+GET {{PetAdoptionAPI_HostAddress}}/api/user/email/alonso.calderon@email.com
 
-POST {{PetAdoptionAPI_HostAddress}}/pet
+### Register a new user
+POST {{PetAdoptionAPI_HostAddress}}/api/user/register
 Content-Type: application/json
 
 {
-    "name": "Lulu",
-    "breed": "shipu",
-    "age": 50,
-
-    "ImageUrl": "lulu.com"
+  "name": "Luisito Suarez",
+  "email": "lucho.pistolero@email.com",
+  "passwordHash": "newhashedpassword",
+  "provider": 1,
+  "providerID": null,
+  "role": 1
 }
 
-###
-
-PUT {{PetAdoptionAPI_HostAddress}}/pet/3
+### Update user by ID
+PUT {{PetAdoptionAPI_HostAddress}}/api/user/1
 Content-Type: application/json
 
 {
-    "id": 3,
-    "name": "Lulu",
-    "breed": "shipu",
-    "age": 50,
-    "ImageUrl": "lulu.com"
+  "id": 1,
+  "name": "Alonso Calderon Updated",
+  "email": "alonso.updated@email.com",
+  "passwordHash": "newsecurepassword",
+  "provider": 0,
+  "providerID": null,
+  "role": 0
 }
 
-###
+### Delete user by ID
+DELETE {{PetAdoptionAPI_HostAddress}}/api/user/1
 
-DELETE  {{PetAdoptionAPI_HostAddress}}/pet/3
 
-###
+############################################
+### 🚀 PET SHELTERS ENDPOINTS
+############################################
+
+### Get all pet shelters
+GET {{PetAdoptionAPI_HostAddress}}/api/petShelter
+
+### Get pet shelter by ID
+GET {{PetAdoptionAPI_HostAddress}}/api/petShelter/7
+
+### Create a new pet shelter
+POST {{PetAdoptionAPI_HostAddress}}/api/petShelter
+Content-Type: application/json
+
+{
+  "name": "Territorio Zaguates",
+  "location": "San Jose",
+  "contactInfo": "6002-1119",
+  "userID": 2
+}
+
+### Delete pet shelter by ID
+DELETE {{PetAdoptionAPI_HostAddress}}/api/petShelter/6
+
+
+############################################
+### 🚀 PET ENDPOINTS
+############################################
+
+### Get all pets
+GET {{PetAdoptionAPI_HostAddress}}/api/pet
+
+### Get pet by ID
+GET {{PetAdoptionAPI_HostAddress}}/api/pet/1
+
+### Create a new pet
+POST {{PetAdoptionAPI_HostAddress}}/api/pet
+Content-Type: application/json
+
+{
+  "name": "Marley",
+  "age": 1,
+  "breed": "Salchi",
+  "description": "Loco demente destructor",
+  "status": 1,
+  "petShelterID": 7
+}
+
+### Update pet by ID
+PUT {{PetAdoptionAPI_HostAddress}}/api/pet/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Tatto",
+  "age": 13,
+  "breed": "Zaguaton",
+  "description": "Loco tranquilo",
+  "status": 1,
+  "petShelterID": 7
+}
+
+### Delete pet by ID
+DELETE {{PetAdoptionAPI_HostAddress}}/api/pet/3
+
+
+############################################
+### 🚀 PET IMAGES ENDPOINTS
+############################################
+
+### Get all pet images
+GET {{PetAdoptionAPI_HostAddress}}/api/petImage
+
+### Get pet image by ID
+GET {{PetAdoptionAPI_HostAddress}}/api/petImage/5
+
+### Upload a new pet image
+POST {{PetAdoptionAPI_HostAddress}}/api/petImage
+Content-Type: application/json
+
+{
+  "imageURL": "marleytest2.cm",
+  "petID": 2
+}
+
+### Delete pet image by ID
+DELETE {{PetAdoptionAPI_HostAddress}}/api/petImage/1
+
+
+############################################
+### 🚀 ADOPTION REQUESTS ENDPOINTS
+############################################
+
+### Get all adoption requests
+GET {{PetAdoptionAPI_HostAddress}}/api/adoptionRequest
+
+### Get adoption request by ID
+GET {{PetAdoptionAPI_HostAddress}}/api/adoptionRequest/1
+
+### Get adoption requests by user
+GET {{PetAdoptionAPI_HostAddress}}/api/adoptionRequest/user/3
+
+### Get adoption requests by shelter
+GET {{PetAdoptionAPI_HostAddress}}/api/adoptionRequest/shelter/7
+
+### Create a new adoption request
+POST {{PetAdoptionAPI_HostAddress}}/api/adoptionRequest
+Content-Type: application/json
+
+{
+  "petID": 2,
+  "userID": 3,
+  "status": 0
+}
+
+### Update adoption request status
+PUT {{PetAdoptionAPI_HostAddress}}/api/adoptionRequest/1/status
+Content-Type: application/json
+
+1
+
+
+############################################
+### 🚀 MESSAGE THREAD ENDPOINTS
+############################################
+
+### Get all message threads
+GET {{PetAdoptionAPI_HostAddress}}/api/messagethread
+
+### Get message thread by ID
+GET {{PetAdoptionAPI_HostAddress}}/api/messagethread/1
+
+### Get message threads by user ID
+GET {{PetAdoptionAPI_HostAddress}}/api/messagethread/user/3
+
+### Get message threads by shelter ID
+GET {{PetAdoptionAPI_HostAddress}}/api/messagethread/shelter/7
+
+### Create a new message thread
+POST {{PetAdoptionAPI_HostAddress}}/api/messagethread
+Content-Type: application/json
+
+{
+  "adoptionRequestID": 1
+}
+
+### Delete message thread by ID
+DELETE {{PetAdoptionAPI_HostAddress}}/api/messagethread/1
+
+
+############################################
+### 🚀 MESSAGE ENDPOINTS
+############################################
+
+### Get all messages
+GET {{PetAdoptionAPI_HostAddress}}/api/message
+
+### Get message by ID
+GET {{PetAdoptionAPI_HostAddress}}/api/message/3
+
+### Get messages by thread ID
+GET {{PetAdoptionAPI_HostAddress}}/api/message/thread/1
+
+### Send a new message
+POST {{PetAdoptionAPI_HostAddress}}/api/message
+Content-Type: application/json
+
+{
+  "messageThreadID": 1,
+  "senderID": 3,
+  "content": "Hello! I'm interested in adopting this pet."
+}
+
+### Delete message by ID
+DELETE {{PetAdoptionAPI_HostAddress}}/api/message/3
